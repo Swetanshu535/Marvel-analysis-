@@ -1,0 +1,32 @@
+create database marvel_analysis;
+use marvel_analysis;
+
+
+select * from marvel_movie;
+
+-- Show the total of IMDB score for nan directors 
+select sum(IMDb) as total_imdb
+from marvel_movie
+where Director_a= "nan";
+
+-- show the rotten_tomatos average value for all the movies 
+select avg(Rotten_Tomatoes_b) as avg_rotten
+from marvel_movie;
+
+-- Show the movie name which has cinema score A+
+select Title,CinemaScore
+from marvel_movie
+where CinemaScore= "A+";
+
+-- show the movies and the directors for worldwide gross 
+select movie,directors,worldwide_gross
+from marvel_movie;
+
+-- if the domestic gross is more than 200 then show the text domestic viral and if not show flop
+select if (Domestic_Gross > 200, "Domestically Viral","Flop") as viral, Title
+from marvel_movie;
+
+
+
+
+
